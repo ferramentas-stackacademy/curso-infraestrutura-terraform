@@ -1,0 +1,1236 @@
+{
+    "format_version": "1.0",
+    "terraform_version": "1.3.6",
+    "values": {
+        "outputs": {
+            "address_endpoint": {
+                "sensitive": false,
+                "value": "data-platform-rds-database-mysql-prod.ceasllnl9zvr.us-east-1.rds.amazonaws.com",
+                "type": "string"
+            },
+            "db_user_admin": {
+                "sensitive": false,
+                "value": "admin",
+                "type": "string"
+            },
+            "instance_port": {
+                "sensitive": false,
+                "value": 3306,
+                "type": "number"
+            }
+        },
+        "root_module": {
+            "resources": [
+                {
+                    "address": "aws_db_instance.rds_mysql_1",
+                    "mode": "managed",
+                    "type": "aws_db_instance",
+                    "name": "rds_mysql_1",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 1,
+                    "values": {
+                        "address": "data-platform-rds-database-mysql-prod.ceasllnl9zvr.us-east-1.rds.amazonaws.com",
+                        "allocated_storage": 50,
+                        "allow_major_version_upgrade": null,
+                        "apply_immediately": null,
+                        "arn": "arn:aws:rds:us-east-1:568040411516:db:data-platform-rds-database-mysql-prod",
+                        "auto_minor_version_upgrade": true,
+                        "availability_zone": "us-east-1d",
+                        "backup_retention_period": 0,
+                        "backup_window": "03:02-03:32",
+                        "blue_green_update": [],
+                        "ca_cert_identifier": "rds-ca-2019",
+                        "character_set_name": "",
+                        "copy_tags_to_snapshot": false,
+                        "custom_iam_instance_profile": "",
+                        "customer_owned_ip_enabled": false,
+                        "db_name": "mydb",
+                        "db_subnet_group_name": "default",
+                        "delete_automated_backups": true,
+                        "deletion_protection": false,
+                        "domain": "",
+                        "domain_iam_role_name": "",
+                        "enabled_cloudwatch_logs_exports": [],
+                        "endpoint": "data-platform-rds-database-mysql-prod.ceasllnl9zvr.us-east-1.rds.amazonaws.com:3306",
+                        "engine": "mysql",
+                        "engine_version": "5.7",
+                        "engine_version_actual": "5.7.38",
+                        "final_snapshot_identifier": null,
+                        "hosted_zone_id": "Z2R2ITUGPM61AM",
+                        "iam_database_authentication_enabled": false,
+                        "id": "data-platform-rds-database-mysql-prod",
+                        "identifier": "data-platform-rds-database-mysql-prod",
+                        "identifier_prefix": "",
+                        "instance_class": "db.t3.micro",
+                        "iops": 0,
+                        "kms_key_id": "",
+                        "latest_restorable_time": "",
+                        "license_model": "general-public-license",
+                        "maintenance_window": "wed:06:20-wed:06:50",
+                        "max_allocated_storage": 100,
+                        "monitoring_interval": 0,
+                        "monitoring_role_arn": "",
+                        "multi_az": false,
+                        "name": "mydb",
+                        "nchar_character_set_name": "",
+                        "network_type": "IPV4",
+                        "option_group_name": "default:mysql-5-7",
+                        "parameter_group_name": "default.mysql5.7",
+                        "password": "Stack2022!",
+                        "performance_insights_enabled": false,
+                        "performance_insights_kms_key_id": "",
+                        "performance_insights_retention_period": 0,
+                        "port": 3306,
+                        "publicly_accessible": true,
+                        "replica_mode": "",
+                        "replicas": [],
+                        "replicate_source_db": "",
+                        "resource_id": "db-KFJGHPEIK4N6NHPM6UZ7FII6UM",
+                        "restore_to_point_in_time": [],
+                        "s3_import": [],
+                        "security_group_names": [],
+                        "skip_final_snapshot": true,
+                        "snapshot_identifier": null,
+                        "status": "available",
+                        "storage_encrypted": false,
+                        "storage_throughput": 0,
+                        "storage_type": "gp2",
+                        "tags": {},
+                        "tags_all": {},
+                        "timeouts": null,
+                        "timezone": "",
+                        "username": "admin",
+                        "vpc_security_group_ids": [
+                            "sg-0bbf8190380399225"
+                        ]
+                    },
+                    "sensitive_values": {
+                        "blue_green_update": [],
+                        "enabled_cloudwatch_logs_exports": [],
+                        "password": true,
+                        "replicas": [],
+                        "restore_to_point_in_time": [],
+                        "s3_import": [],
+                        "security_group_names": [],
+                        "tags": {},
+                        "tags_all": {},
+                        "vpc_security_group_ids": [
+                            false
+                        ]
+                    },
+                    "depends_on": [
+                        "aws_security_group.access-rds-port"
+                    ]
+                },
+                {
+                    "address": "aws_iam_role.iam_for_lambda",
+                    "mode": "managed",
+                    "type": "aws_iam_role",
+                    "name": "iam_for_lambda",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "arn": "arn:aws:iam::568040411516:role/iam_for_lambda",
+                        "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"},\"Sid\":\"\"}],\"Version\":\"2012-10-17\"}",
+                        "create_date": "2022-12-14T01:53:38Z",
+                        "description": "",
+                        "force_detach_policies": false,
+                        "id": "iam_for_lambda",
+                        "inline_policy": [],
+                        "managed_policy_arns": [],
+                        "max_session_duration": 3600,
+                        "name": "iam_for_lambda",
+                        "name_prefix": "",
+                        "path": "/",
+                        "permissions_boundary": null,
+                        "tags": null,
+                        "tags_all": {},
+                        "unique_id": "AROAYIQOY2F6FBJHWM2LS"
+                    },
+                    "sensitive_values": {
+                        "inline_policy": [],
+                        "managed_policy_arns": [],
+                        "tags_all": {}
+                    }
+                },
+                {
+                    "address": "aws_instance.instances_ec2[0]",
+                    "mode": "managed",
+                    "type": "aws_instance",
+                    "name": "instances_ec2",
+                    "index": 0,
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 1,
+                    "values": {
+                        "ami": "ami-0574da719dca65348",
+                        "arn": "arn:aws:ec2:us-east-1:568040411516:instance/i-0a8f1d939c3a2bc10",
+                        "associate_public_ip_address": true,
+                        "availability_zone": "us-east-1a",
+                        "capacity_reservation_specification": [
+                            {
+                                "capacity_reservation_preference": "open",
+                                "capacity_reservation_target": []
+                            }
+                        ],
+                        "cpu_core_count": 1,
+                        "cpu_threads_per_core": 1,
+                        "credit_specification": [
+                            {
+                                "cpu_credits": "standard"
+                            }
+                        ],
+                        "disable_api_stop": false,
+                        "disable_api_termination": false,
+                        "ebs_block_device": [
+                            {
+                                "delete_on_termination": true,
+                                "device_name": "/dev/sdh",
+                                "encrypted": false,
+                                "iops": 3000,
+                                "kms_key_id": "",
+                                "snapshot_id": "",
+                                "tags": {},
+                                "throughput": 125,
+                                "volume_id": "vol-0e0a2bdef3490c39d",
+                                "volume_size": 100,
+                                "volume_type": "gp3"
+                            }
+                        ],
+                        "ebs_optimized": false,
+                        "enclave_options": [
+                            {
+                                "enabled": false
+                            }
+                        ],
+                        "ephemeral_block_device": [],
+                        "get_password_data": false,
+                        "hibernation": false,
+                        "host_id": null,
+                        "host_resource_group_arn": null,
+                        "iam_instance_profile": "",
+                        "id": "i-0a8f1d939c3a2bc10",
+                        "instance_initiated_shutdown_behavior": "stop",
+                        "instance_state": "running",
+                        "instance_type": "t2.micro",
+                        "ipv6_address_count": 0,
+                        "ipv6_addresses": [],
+                        "key_name": "key_pair_terraform",
+                        "launch_template": [],
+                        "maintenance_options": [
+                            {
+                                "auto_recovery": "default"
+                            }
+                        ],
+                        "metadata_options": [
+                            {
+                                "http_endpoint": "enabled",
+                                "http_put_response_hop_limit": 1,
+                                "http_tokens": "optional",
+                                "instance_metadata_tags": "disabled"
+                            }
+                        ],
+                        "monitoring": true,
+                        "network_interface": [],
+                        "outpost_arn": "",
+                        "password_data": "",
+                        "placement_group": "",
+                        "placement_partition_number": null,
+                        "primary_network_interface_id": "eni-09d43aa2fc0795703",
+                        "private_dns": "ip-172-31-94-9.ec2.internal",
+                        "private_dns_name_options": [
+                            {
+                                "enable_resource_name_dns_a_record": false,
+                                "enable_resource_name_dns_aaaa_record": false,
+                                "hostname_type": "ip-name"
+                            }
+                        ],
+                        "private_ip": "172.31.94.9",
+                        "public_dns": "ec2-3-83-219-17.compute-1.amazonaws.com",
+                        "public_ip": "3.83.219.17",
+                        "root_block_device": [
+                            {
+                                "delete_on_termination": true,
+                                "device_name": "/dev/sda1",
+                                "encrypted": false,
+                                "iops": 100,
+                                "kms_key_id": "",
+                                "tags": {},
+                                "throughput": 0,
+                                "volume_id": "vol-02ee76c5a6e55e954",
+                                "volume_size": 8,
+                                "volume_type": "gp2"
+                            }
+                        ],
+                        "secondary_private_ips": [],
+                        "security_groups": [
+                            "acesso-ssh"
+                        ],
+                        "source_dest_check": true,
+                        "subnet_id": "subnet-0eaee80b9ea1d846b",
+                        "tags": {
+                            "Name": "data-platform-ubuntu-server-prod"
+                        },
+                        "tags_all": {
+                            "Name": "data-platform-ubuntu-server-prod"
+                        },
+                        "tenancy": "default",
+                        "timeouts": null,
+                        "user_data": null,
+                        "user_data_base64": null,
+                        "user_data_replace_on_change": false,
+                        "volume_tags": null,
+                        "vpc_security_group_ids": [
+                            "sg-088cd1037e5886165"
+                        ]
+                    },
+                    "sensitive_values": {
+                        "capacity_reservation_specification": [
+                            {
+                                "capacity_reservation_target": []
+                            }
+                        ],
+                        "credit_specification": [
+                            {}
+                        ],
+                        "ebs_block_device": [
+                            {
+                                "tags": {}
+                            }
+                        ],
+                        "enclave_options": [
+                            {}
+                        ],
+                        "ephemeral_block_device": [],
+                        "ipv6_addresses": [],
+                        "launch_template": [],
+                        "maintenance_options": [
+                            {}
+                        ],
+                        "metadata_options": [
+                            {}
+                        ],
+                        "network_interface": [],
+                        "private_dns_name_options": [
+                            {}
+                        ],
+                        "root_block_device": [
+                            {
+                                "tags": {}
+                            }
+                        ],
+                        "secondary_private_ips": [],
+                        "security_groups": [
+                            false
+                        ],
+                        "tags": {},
+                        "tags_all": {},
+                        "vpc_security_group_ids": [
+                            false
+                        ]
+                    },
+                    "depends_on": [
+                        "aws_security_group.access-ssh"
+                    ]
+                },
+                {
+                    "address": "aws_lambda_function.lambda_get_mysqlsql",
+                    "mode": "managed",
+                    "type": "aws_lambda_function",
+                    "name": "lambda_get_mysqlsql",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "architectures": [
+                            "x86_64"
+                        ],
+                        "arn": "arn:aws:lambda:us-east-1:568040411516:function:Lambda_app_Playlists1",
+                        "code_signing_config_arn": "",
+                        "dead_letter_config": [],
+                        "description": "",
+                        "environment": [
+                            {
+                                "variables": {
+                                    "db_instance_address": "data-platform-rds-database-mysql-prod.ceasllnl9zvr.us-east-1.rds.amazonaws.com",
+                                    "db_name": "mydb",
+                                    "db_password": "Stack2022!",
+                                    "db_port": "3306",
+                                    "db_username": "admin"
+                                }
+                            }
+                        ],
+                        "ephemeral_storage": [
+                            {
+                                "size": 512
+                            }
+                        ],
+                        "file_system_config": [],
+                        "filename": "./lambda/app.py.zip",
+                        "function_name": "Lambda_app_Playlists1",
+                        "handler": "app.lambda_handler",
+                        "id": "Lambda_app_Playlists1",
+                        "image_config": [],
+                        "image_uri": "",
+                        "invoke_arn": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:568040411516:function:Lambda_app_Playlists1/invocations",
+                        "kms_key_arn": "",
+                        "last_modified": "2022-12-14T01:53:52.069+0000",
+                        "layers": [
+                            "arn:aws:lambda:us-east-1:568040411516:layer:pymysql-v1:2"
+                        ],
+                        "memory_size": 128,
+                        "package_type": "Zip",
+                        "publish": false,
+                        "qualified_arn": "arn:aws:lambda:us-east-1:568040411516:function:Lambda_app_Playlists1:$LATEST",
+                        "qualified_invoke_arn": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:568040411516:function:Lambda_app_Playlists1:$LATEST/invocations",
+                        "reserved_concurrent_executions": -1,
+                        "role": "arn:aws:iam::568040411516:role/iam_for_lambda",
+                        "runtime": "python3.9",
+                        "s3_bucket": null,
+                        "s3_key": null,
+                        "s3_object_version": null,
+                        "signing_job_arn": "",
+                        "signing_profile_version_arn": "",
+                        "snap_start": [],
+                        "source_code_hash": "EGcwu8lZE3D5yABNXjMrUOGtw5OC9U1eKumpW+hLPIw=",
+                        "source_code_size": 439,
+                        "tags": null,
+                        "tags_all": {},
+                        "timeout": 3,
+                        "timeouts": null,
+                        "tracing_config": [
+                            {
+                                "mode": "PassThrough"
+                            }
+                        ],
+                        "version": "$LATEST",
+                        "vpc_config": []
+                    },
+                    "sensitive_values": {
+                        "architectures": [
+                            false
+                        ],
+                        "dead_letter_config": [],
+                        "environment": [
+                            {
+                                "variables": {
+                                    "db_password": true
+                                }
+                            }
+                        ],
+                        "ephemeral_storage": [
+                            {}
+                        ],
+                        "file_system_config": [],
+                        "image_config": [],
+                        "layers": [
+                            false
+                        ],
+                        "snap_start": [],
+                        "tags_all": {},
+                        "tracing_config": [
+                            {}
+                        ],
+                        "vpc_config": []
+                    },
+                    "depends_on": [
+                        "aws_db_instance.rds_mysql_1",
+                        "aws_iam_role.iam_for_lambda",
+                        "aws_lambda_layer_version.lambda_layer_pymysql"
+                    ]
+                },
+                {
+                    "address": "aws_lambda_layer_version.lambda_layer_pymysql",
+                    "mode": "managed",
+                    "type": "aws_lambda_layer_version",
+                    "name": "lambda_layer_pymysql",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "arn": "arn:aws:lambda:us-east-1:568040411516:layer:pymysql-v1:2",
+                        "compatible_architectures": null,
+                        "compatible_runtimes": [
+                            "python3.9"
+                        ],
+                        "created_date": "2022-12-14T01:53:43.156+0000",
+                        "description": "",
+                        "filename": "./lambda/python.zip",
+                        "id": "arn:aws:lambda:us-east-1:568040411516:layer:pymysql-v1:2",
+                        "layer_arn": "arn:aws:lambda:us-east-1:568040411516:layer:pymysql-v1",
+                        "layer_name": "pymysql-v1",
+                        "license_info": "",
+                        "s3_bucket": null,
+                        "s3_key": null,
+                        "s3_object_version": null,
+                        "signing_job_arn": "",
+                        "signing_profile_version_arn": "",
+                        "skip_destroy": false,
+                        "source_code_hash": "Cr2eC6iINc9KwIiV41j9ANMjnMYlfrHCiJzOPW8WbXE=",
+                        "source_code_size": 105039,
+                        "version": "2"
+                    },
+                    "sensitive_values": {
+                        "compatible_runtimes": [
+                            false
+                        ]
+                    }
+                },
+                {
+                    "address": "aws_s3_bucket.buckets-stack[0]",
+                    "mode": "managed",
+                    "type": "aws_s3_bucket",
+                    "name": "buckets-stack",
+                    "index": 0,
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "acceleration_status": "",
+                        "acl": null,
+                        "arn": "arn:aws:s3:::data-platform-bronze-prod",
+                        "bucket": "data-platform-bronze-prod",
+                        "bucket_domain_name": "data-platform-bronze-prod.s3.amazonaws.com",
+                        "bucket_prefix": null,
+                        "bucket_regional_domain_name": "data-platform-bronze-prod.s3.amazonaws.com",
+                        "cors_rule": [],
+                        "force_destroy": true,
+                        "grant": [
+                            {
+                                "id": "5a5f7d201ad93384de273224150df7f4b80fa2c5e761bf946c27260cfa94c434",
+                                "permissions": [
+                                    "FULL_CONTROL"
+                                ],
+                                "type": "CanonicalUser",
+                                "uri": ""
+                            }
+                        ],
+                        "hosted_zone_id": "Z3AQBSTGFYJSTF",
+                        "id": "data-platform-bronze-prod",
+                        "lifecycle_rule": [],
+                        "logging": [],
+                        "object_lock_configuration": [],
+                        "object_lock_enabled": false,
+                        "policy": "",
+                        "region": "us-east-1",
+                        "replication_configuration": [],
+                        "request_payer": "BucketOwner",
+                        "server_side_encryption_configuration": [
+                            {
+                                "rule": [
+                                    {
+                                        "apply_server_side_encryption_by_default": [
+                                            {
+                                                "kms_master_key_id": "",
+                                                "sse_algorithm": "AES256"
+                                            }
+                                        ],
+                                        "bucket_key_enabled": false
+                                    }
+                                ]
+                            }
+                        ],
+                        "tags": {
+                            "Bucket_Name": "data-platform-bronze-prod",
+                            "Cost_Center": "TI",
+                            "Project_Name": "data-platform",
+                            "environment": "prod"
+                        },
+                        "tags_all": {
+                            "Bucket_Name": "data-platform-bronze-prod",
+                            "Cost_Center": "TI",
+                            "Project_Name": "data-platform",
+                            "environment": "prod"
+                        },
+                        "timeouts": null,
+                        "versioning": [
+                            {
+                                "enabled": false,
+                                "mfa_delete": false
+                            }
+                        ],
+                        "website": [],
+                        "website_domain": null,
+                        "website_endpoint": null
+                    },
+                    "sensitive_values": {
+                        "cors_rule": [],
+                        "grant": [
+                            {
+                                "permissions": [
+                                    false
+                                ]
+                            }
+                        ],
+                        "lifecycle_rule": [],
+                        "logging": [],
+                        "object_lock_configuration": [],
+                        "replication_configuration": [],
+                        "server_side_encryption_configuration": [
+                            {
+                                "rule": [
+                                    {
+                                        "apply_server_side_encryption_by_default": [
+                                            {}
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "tags": {},
+                        "tags_all": {},
+                        "versioning": [
+                            {}
+                        ],
+                        "website": []
+                    }
+                },
+                {
+                    "address": "aws_s3_bucket.buckets-stack[1]",
+                    "mode": "managed",
+                    "type": "aws_s3_bucket",
+                    "name": "buckets-stack",
+                    "index": 1,
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "acceleration_status": "",
+                        "acl": null,
+                        "arn": "arn:aws:s3:::data-platform-gold-prod",
+                        "bucket": "data-platform-gold-prod",
+                        "bucket_domain_name": "data-platform-gold-prod.s3.amazonaws.com",
+                        "bucket_prefix": null,
+                        "bucket_regional_domain_name": "data-platform-gold-prod.s3.amazonaws.com",
+                        "cors_rule": [],
+                        "force_destroy": true,
+                        "grant": [
+                            {
+                                "id": "5a5f7d201ad93384de273224150df7f4b80fa2c5e761bf946c27260cfa94c434",
+                                "permissions": [
+                                    "FULL_CONTROL"
+                                ],
+                                "type": "CanonicalUser",
+                                "uri": ""
+                            }
+                        ],
+                        "hosted_zone_id": "Z3AQBSTGFYJSTF",
+                        "id": "data-platform-gold-prod",
+                        "lifecycle_rule": [],
+                        "logging": [],
+                        "object_lock_configuration": [],
+                        "object_lock_enabled": false,
+                        "policy": "",
+                        "region": "us-east-1",
+                        "replication_configuration": [],
+                        "request_payer": "BucketOwner",
+                        "server_side_encryption_configuration": [
+                            {
+                                "rule": [
+                                    {
+                                        "apply_server_side_encryption_by_default": [
+                                            {
+                                                "kms_master_key_id": "",
+                                                "sse_algorithm": "AES256"
+                                            }
+                                        ],
+                                        "bucket_key_enabled": false
+                                    }
+                                ]
+                            }
+                        ],
+                        "tags": {
+                            "Bucket_Name": "data-platform-gold-prod",
+                            "Cost_Center": "TI",
+                            "Project_Name": "data-platform",
+                            "environment": "prod"
+                        },
+                        "tags_all": {
+                            "Bucket_Name": "data-platform-gold-prod",
+                            "Cost_Center": "TI",
+                            "Project_Name": "data-platform",
+                            "environment": "prod"
+                        },
+                        "timeouts": null,
+                        "versioning": [
+                            {
+                                "enabled": false,
+                                "mfa_delete": false
+                            }
+                        ],
+                        "website": [],
+                        "website_domain": null,
+                        "website_endpoint": null
+                    },
+                    "sensitive_values": {
+                        "cors_rule": [],
+                        "grant": [
+                            {
+                                "permissions": [
+                                    false
+                                ]
+                            }
+                        ],
+                        "lifecycle_rule": [],
+                        "logging": [],
+                        "object_lock_configuration": [],
+                        "replication_configuration": [],
+                        "server_side_encryption_configuration": [
+                            {
+                                "rule": [
+                                    {
+                                        "apply_server_side_encryption_by_default": [
+                                            {}
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "tags": {},
+                        "tags_all": {},
+                        "versioning": [
+                            {}
+                        ],
+                        "website": []
+                    }
+                },
+                {
+                    "address": "aws_s3_bucket.buckets-stack[2]",
+                    "mode": "managed",
+                    "type": "aws_s3_bucket",
+                    "name": "buckets-stack",
+                    "index": 2,
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "acceleration_status": "",
+                        "acl": null,
+                        "arn": "arn:aws:s3:::data-platform-silver-prod",
+                        "bucket": "data-platform-silver-prod",
+                        "bucket_domain_name": "data-platform-silver-prod.s3.amazonaws.com",
+                        "bucket_prefix": null,
+                        "bucket_regional_domain_name": "data-platform-silver-prod.s3.amazonaws.com",
+                        "cors_rule": [],
+                        "force_destroy": true,
+                        "grant": [
+                            {
+                                "id": "5a5f7d201ad93384de273224150df7f4b80fa2c5e761bf946c27260cfa94c434",
+                                "permissions": [
+                                    "FULL_CONTROL"
+                                ],
+                                "type": "CanonicalUser",
+                                "uri": ""
+                            }
+                        ],
+                        "hosted_zone_id": "Z3AQBSTGFYJSTF",
+                        "id": "data-platform-silver-prod",
+                        "lifecycle_rule": [],
+                        "logging": [],
+                        "object_lock_configuration": [],
+                        "object_lock_enabled": false,
+                        "policy": "",
+                        "region": "us-east-1",
+                        "replication_configuration": [],
+                        "request_payer": "BucketOwner",
+                        "server_side_encryption_configuration": [
+                            {
+                                "rule": [
+                                    {
+                                        "apply_server_side_encryption_by_default": [
+                                            {
+                                                "kms_master_key_id": "",
+                                                "sse_algorithm": "AES256"
+                                            }
+                                        ],
+                                        "bucket_key_enabled": false
+                                    }
+                                ]
+                            }
+                        ],
+                        "tags": {
+                            "Bucket_Name": "data-platform-silver-prod",
+                            "Cost_Center": "TI",
+                            "Project_Name": "data-platform",
+                            "environment": "prod"
+                        },
+                        "tags_all": {
+                            "Bucket_Name": "data-platform-silver-prod",
+                            "Cost_Center": "TI",
+                            "Project_Name": "data-platform",
+                            "environment": "prod"
+                        },
+                        "timeouts": null,
+                        "versioning": [
+                            {
+                                "enabled": false,
+                                "mfa_delete": false
+                            }
+                        ],
+                        "website": [],
+                        "website_domain": null,
+                        "website_endpoint": null
+                    },
+                    "sensitive_values": {
+                        "cors_rule": [],
+                        "grant": [
+                            {
+                                "permissions": [
+                                    false
+                                ]
+                            }
+                        ],
+                        "lifecycle_rule": [],
+                        "logging": [],
+                        "object_lock_configuration": [],
+                        "replication_configuration": [],
+                        "server_side_encryption_configuration": [
+                            {
+                                "rule": [
+                                    {
+                                        "apply_server_side_encryption_by_default": [
+                                            {}
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "tags": {},
+                        "tags_all": {},
+                        "versioning": [
+                            {}
+                        ],
+                        "website": []
+                    }
+                },
+                {
+                    "address": "aws_s3_bucket_acl.bucket_acl[0]",
+                    "mode": "managed",
+                    "type": "aws_s3_bucket_acl",
+                    "name": "bucket_acl",
+                    "index": 0,
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "access_control_policy": [
+                            {
+                                "grant": [
+                                    {
+                                        "grantee": [
+                                            {
+                                                "display_name": "stackuserterraform",
+                                                "email_address": "",
+                                                "id": "5a5f7d201ad93384de273224150df7f4b80fa2c5e761bf946c27260cfa94c434",
+                                                "type": "CanonicalUser",
+                                                "uri": ""
+                                            }
+                                        ],
+                                        "permission": "FULL_CONTROL"
+                                    }
+                                ],
+                                "owner": [
+                                    {
+                                        "display_name": "stackuserterraform",
+                                        "id": "5a5f7d201ad93384de273224150df7f4b80fa2c5e761bf946c27260cfa94c434"
+                                    }
+                                ]
+                            }
+                        ],
+                        "acl": "private",
+                        "bucket": "data-platform-bronze-prod",
+                        "expected_bucket_owner": "",
+                        "id": "data-platform-bronze-prod,private"
+                    },
+                    "sensitive_values": {
+                        "access_control_policy": [
+                            {
+                                "grant": [
+                                    {
+                                        "grantee": [
+                                            {}
+                                        ]
+                                    }
+                                ],
+                                "owner": [
+                                    {}
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "address": "aws_s3_bucket_acl.bucket_acl[1]",
+                    "mode": "managed",
+                    "type": "aws_s3_bucket_acl",
+                    "name": "bucket_acl",
+                    "index": 1,
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "access_control_policy": [
+                            {
+                                "grant": [
+                                    {
+                                        "grantee": [
+                                            {
+                                                "display_name": "stackuserterraform",
+                                                "email_address": "",
+                                                "id": "5a5f7d201ad93384de273224150df7f4b80fa2c5e761bf946c27260cfa94c434",
+                                                "type": "CanonicalUser",
+                                                "uri": ""
+                                            }
+                                        ],
+                                        "permission": "FULL_CONTROL"
+                                    }
+                                ],
+                                "owner": [
+                                    {
+                                        "display_name": "stackuserterraform",
+                                        "id": "5a5f7d201ad93384de273224150df7f4b80fa2c5e761bf946c27260cfa94c434"
+                                    }
+                                ]
+                            }
+                        ],
+                        "acl": "private",
+                        "bucket": "data-platform-gold-prod",
+                        "expected_bucket_owner": "",
+                        "id": "data-platform-gold-prod,private"
+                    },
+                    "sensitive_values": {
+                        "access_control_policy": [
+                            {
+                                "grant": [
+                                    {
+                                        "grantee": [
+                                            {}
+                                        ]
+                                    }
+                                ],
+                                "owner": [
+                                    {}
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "address": "aws_s3_bucket_acl.bucket_acl[2]",
+                    "mode": "managed",
+                    "type": "aws_s3_bucket_acl",
+                    "name": "bucket_acl",
+                    "index": 2,
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "access_control_policy": [
+                            {
+                                "grant": [
+                                    {
+                                        "grantee": [
+                                            {
+                                                "display_name": "stackuserterraform",
+                                                "email_address": "",
+                                                "id": "5a5f7d201ad93384de273224150df7f4b80fa2c5e761bf946c27260cfa94c434",
+                                                "type": "CanonicalUser",
+                                                "uri": ""
+                                            }
+                                        ],
+                                        "permission": "FULL_CONTROL"
+                                    }
+                                ],
+                                "owner": [
+                                    {
+                                        "display_name": "stackuserterraform",
+                                        "id": "5a5f7d201ad93384de273224150df7f4b80fa2c5e761bf946c27260cfa94c434"
+                                    }
+                                ]
+                            }
+                        ],
+                        "acl": "private",
+                        "bucket": "data-platform-silver-prod",
+                        "expected_bucket_owner": "",
+                        "id": "data-platform-silver-prod,private"
+                    },
+                    "sensitive_values": {
+                        "access_control_policy": [
+                            {
+                                "grant": [
+                                    {
+                                        "grantee": [
+                                            {}
+                                        ]
+                                    }
+                                ],
+                                "owner": [
+                                    {}
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "address": "aws_s3_bucket_public_access_block.public_access_block[0]",
+                    "mode": "managed",
+                    "type": "aws_s3_bucket_public_access_block",
+                    "name": "public_access_block",
+                    "index": 0,
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "block_public_acls": true,
+                        "block_public_policy": true,
+                        "bucket": "data-platform-bronze-prod",
+                        "id": "data-platform-bronze-prod",
+                        "ignore_public_acls": true,
+                        "restrict_public_buckets": true
+                    },
+                    "sensitive_values": {}
+                },
+                {
+                    "address": "aws_s3_bucket_public_access_block.public_access_block[1]",
+                    "mode": "managed",
+                    "type": "aws_s3_bucket_public_access_block",
+                    "name": "public_access_block",
+                    "index": 1,
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "block_public_acls": true,
+                        "block_public_policy": true,
+                        "bucket": "data-platform-gold-prod",
+                        "id": "data-platform-gold-prod",
+                        "ignore_public_acls": true,
+                        "restrict_public_buckets": true
+                    },
+                    "sensitive_values": {}
+                },
+                {
+                    "address": "aws_s3_bucket_public_access_block.public_access_block[2]",
+                    "mode": "managed",
+                    "type": "aws_s3_bucket_public_access_block",
+                    "name": "public_access_block",
+                    "index": 2,
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "block_public_acls": true,
+                        "block_public_policy": true,
+                        "bucket": "data-platform-silver-prod",
+                        "id": "data-platform-silver-prod",
+                        "ignore_public_acls": true,
+                        "restrict_public_buckets": true
+                    },
+                    "sensitive_values": {}
+                },
+                {
+                    "address": "aws_s3_bucket_server_side_encryption_configuration.bucket-encryption[0]",
+                    "mode": "managed",
+                    "type": "aws_s3_bucket_server_side_encryption_configuration",
+                    "name": "bucket-encryption",
+                    "index": 0,
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "bucket": "data-platform-bronze-prod",
+                        "expected_bucket_owner": "",
+                        "id": "data-platform-bronze-prod",
+                        "rule": [
+                            {
+                                "apply_server_side_encryption_by_default": [
+                                    {
+                                        "kms_master_key_id": "",
+                                        "sse_algorithm": "AES256"
+                                    }
+                                ],
+                                "bucket_key_enabled": false
+                            }
+                        ]
+                    },
+                    "sensitive_values": {
+                        "rule": [
+                            {
+                                "apply_server_side_encryption_by_default": [
+                                    {}
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "address": "aws_s3_bucket_server_side_encryption_configuration.bucket-encryption[1]",
+                    "mode": "managed",
+                    "type": "aws_s3_bucket_server_side_encryption_configuration",
+                    "name": "bucket-encryption",
+                    "index": 1,
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "bucket": "data-platform-gold-prod",
+                        "expected_bucket_owner": "",
+                        "id": "data-platform-gold-prod",
+                        "rule": [
+                            {
+                                "apply_server_side_encryption_by_default": [
+                                    {
+                                        "kms_master_key_id": "",
+                                        "sse_algorithm": "AES256"
+                                    }
+                                ],
+                                "bucket_key_enabled": false
+                            }
+                        ]
+                    },
+                    "sensitive_values": {
+                        "rule": [
+                            {
+                                "apply_server_side_encryption_by_default": [
+                                    {}
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "address": "aws_s3_bucket_server_side_encryption_configuration.bucket-encryption[2]",
+                    "mode": "managed",
+                    "type": "aws_s3_bucket_server_side_encryption_configuration",
+                    "name": "bucket-encryption",
+                    "index": 2,
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "bucket": "data-platform-silver-prod",
+                        "expected_bucket_owner": "",
+                        "id": "data-platform-silver-prod",
+                        "rule": [
+                            {
+                                "apply_server_side_encryption_by_default": [
+                                    {
+                                        "kms_master_key_id": "",
+                                        "sse_algorithm": "AES256"
+                                    }
+                                ],
+                                "bucket_key_enabled": false
+                            }
+                        ]
+                    },
+                    "sensitive_values": {
+                        "rule": [
+                            {
+                                "apply_server_side_encryption_by_default": [
+                                    {}
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "address": "aws_security_group.access-rds-port",
+                    "mode": "managed",
+                    "type": "aws_security_group",
+                    "name": "access-rds-port",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 1,
+                    "values": {
+                        "arn": "arn:aws:ec2:us-east-1:568040411516:security-group/sg-0bbf8190380399225",
+                        "description": "Managed by Terraform",
+                        "egress": [],
+                        "id": "sg-0bbf8190380399225",
+                        "ingress": [
+                            {
+                                "cidr_blocks": [
+                                    "0.0.0.0/0"
+                                ],
+                                "description": "",
+                                "from_port": 3306,
+                                "ipv6_cidr_blocks": [],
+                                "prefix_list_ids": [],
+                                "protocol": "tcp",
+                                "security_groups": [],
+                                "self": false,
+                                "to_port": 3306
+                            }
+                        ],
+                        "name": "access_rds",
+                        "name_prefix": "",
+                        "owner_id": "568040411516",
+                        "revoke_rules_on_delete": false,
+                        "tags": {
+                            "security_group": "access-rds-port"
+                        },
+                        "tags_all": {
+                            "security_group": "access-rds-port"
+                        },
+                        "timeouts": null,
+                        "vpc_id": "vpc-03be38673f2828606"
+                    },
+                    "sensitive_values": {
+                        "egress": [],
+                        "ingress": [
+                            {
+                                "cidr_blocks": [
+                                    false
+                                ],
+                                "ipv6_cidr_blocks": [],
+                                "prefix_list_ids": [],
+                                "security_groups": []
+                            }
+                        ],
+                        "tags": {},
+                        "tags_all": {}
+                    }
+                },
+                {
+                    "address": "aws_security_group.access-ssh",
+                    "mode": "managed",
+                    "type": "aws_security_group",
+                    "name": "access-ssh",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 1,
+                    "values": {
+                        "arn": "arn:aws:ec2:us-east-1:568040411516:security-group/sg-088cd1037e5886165",
+                        "description": "Managed by Terraform",
+                        "egress": [],
+                        "id": "sg-088cd1037e5886165",
+                        "ingress": [
+                            {
+                                "cidr_blocks": [
+                                    "0.0.0.0/0"
+                                ],
+                                "description": "",
+                                "from_port": 22,
+                                "ipv6_cidr_blocks": [],
+                                "prefix_list_ids": [],
+                                "protocol": "tcp",
+                                "security_groups": [],
+                                "self": false,
+                                "to_port": 22
+                            }
+                        ],
+                        "name": "acesso-ssh",
+                        "name_prefix": "",
+                        "owner_id": "568040411516",
+                        "revoke_rules_on_delete": false,
+                        "tags": {
+                            "Name": "ssh"
+                        },
+                        "tags_all": {
+                            "Name": "ssh"
+                        },
+                        "timeouts": null,
+                        "vpc_id": "vpc-03be38673f2828606"
+                    },
+                    "sensitive_values": {
+                        "egress": [],
+                        "ingress": [
+                            {
+                                "cidr_blocks": [
+                                    false
+                                ],
+                                "ipv6_cidr_blocks": [],
+                                "prefix_list_ids": [],
+                                "security_groups": []
+                            }
+                        ],
+                        "tags": {},
+                        "tags_all": {}
+                    }
+                }
+            ]
+        }
+    }
+}
