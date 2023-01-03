@@ -1,23 +1,13 @@
 # Stack Academy
+### Infraestrutura como Código com Terraform.
 
-### [Nome do Curso]
+### Para este projeto, foram usados as seguintes tecnologias:
 
-[objetivo do curso]
+Terraform: Tecnologia para provisionamento de infraestrutura como código;
+AWS: Ambiente de computação em nuvem;
+GCP: Ambiente de computação em nuvem;
+Azure: Ambiente de computação em nuvem;
 
-- [**Fonte de Dados:** ]
-  - xxx
-  - xxx
+- Os componentes foram organizados na seguinte arquitetura:
 
-[Para este projeto, foram usados as seguintes tecnologias: ]
-
-- **AWS**: Ambiente de computação em nuvem;
-- **Github**: Para criar uma esteira de CI/CD para fazer o deploy automatizado dos recursos do projeto, auxiliando o Terraform;
-- **...**: ...;
-
-[Os componentes foram organizados na seguinte arquitetura:] 
-
-![alt text](./img/combustiveis_brasil.png)
-
-[Instruções para executar aplicação/projeto]
-
-
+. img/terraform_arquitetura.png
