@@ -13,4 +13,6 @@ Para este projeto, foram usados as seguintes tecnologias:
 
 Os componentes foram organizados na seguinte arquitetura:
 
-. img/terraform_arquitetura.png
+![Alt text](img/terraform_arquitetura.png?raw=true "Title")
+
+Para adquirir esse curso acesse: https://stackacademy.com.br/
